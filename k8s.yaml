@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/name: app
     spec:
       containers:
-      - image: 098324025508.dkr.ecr.ap-south-1.amazonaws.com/javademo:latest
+      - image: 098324025508.dkr.ecr.ap-south-1.amazonaws.com/nodejs-cicd:latest
         imagePullPolicy: Always
         name: app
         ports:
