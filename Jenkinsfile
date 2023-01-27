@@ -42,8 +42,11 @@ stage('Push Image') {
     stage('Deploy to EKS'){
       steps{
           script {
-            sh 'aws eks update-kubeconfig --region ap-south-1 --name devops'
-            sh 'kubectl apply -f k8s.yaml'
+withCredentials([file(credentialsId: 'eks', variable: 'kubecfg')]){
+                    //Change context with related namespace
+             sh 'aws eks update-kubeconfig --region ap-south-1 --name devops'
+             sh 'kubectl apply -f k8s.yaml'
+}
       }
     }
   }
