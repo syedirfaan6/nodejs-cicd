@@ -42,11 +42,10 @@ stage('Push Image') {
     stage('Deploy to EKS'){
       steps{
           script {
-withCredentials([file(credentialsId: 'eks', variable: 'kubecfg')]){
-                    //Change context with related namespace
+            kubeconfig(credentialsId: 'eks', serverUrl: 'https://4757D7080B9915CAB42D091D38A21EAE.gr7.ap-south-1.eks.amazonaws.com') {
              sh 'aws eks update-kubeconfig --region ap-south-1 --name devops'
              sh 'kubectl apply -f k8s.yaml'
-}
+}          
       }
     }
   }
