@@ -25,7 +25,7 @@ REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/
       steps{
         script {withCredentials([[
     $class: 'AmazonWebServicesCredentialsBinding',
-    credentialsId: "credentials-id-here",
+    credentialsId: "aws",
     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
 ]]) {
