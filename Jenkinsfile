@@ -48,7 +48,7 @@ stage('Push Image') {
     stage('Deploy to EKS'){
       steps{
           script {
-            kubeconfig(credentialsId: 'eks', serverUrl: 'https://4757D7080B9915CAB42D091D38A21EAE.gr7.ap-south-1.eks.amazonaws.com') {
+            kubeconfig(credentialsId: 'eks', serverUrl: 'https://5EF4EC725C5A23E03A777CFD73A4E61E.gr7.ap-south-1.eks.amazonaws.com') {
              sh 'kubectl apply -f k8s.yaml'
 }          
       }
