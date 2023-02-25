@@ -7,10 +7,6 @@ IMAGE_TAG="${BUILD_NUMBER}"
 REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 }
   agent any
-parameters {
-        string(name: 'USER_INPUT', description: 'Enter Image tag to deploy:', defaultValue: 'latest')
-    }  
-    
   stages {
     
     stage('git clone'){
@@ -48,7 +44,9 @@ stage('Push Image') {
           }
         }
       }    
-    
+    parameters {
+        string(name: 'USER_INPUT', description: 'Enter Image tag to deploy:', defaultValue: 'latest')
+    }  
     stage('Deploy to EKS'){
       steps{
           script {
