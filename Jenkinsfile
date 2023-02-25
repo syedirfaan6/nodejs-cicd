@@ -3,7 +3,7 @@ environment {
 AWS_ACCOUNT_ID="098324025508"
 AWS_DEFAULT_REGION="ap-south-1"
 IMAGE_REPO_NAME="nodejs-cicd"
-IMAGE_TAG="latest"
+IMAGE_TAG="${BUILD_NUMBER}"
 REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 }
   agent any
@@ -49,7 +49,7 @@ stage('Push Image') {
       steps{
           script {
             kubeconfig(credentialsId: 'eks', serverUrl: 'https://8A36AA8153C6C02D87188464F78F34DA.gr7.ap-south-1.eks.amazonaws.com') {
-             sh 'kubectl apply -f k8s.yaml'
+             sh 'cat k8s.yaml | sed "s/{{BUILD_NUMBER}}/${IMAGE_TAG}/g" | kubectl apply -f -'
 }          
       }
     }
