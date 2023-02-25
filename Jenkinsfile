@@ -6,12 +6,11 @@ IMAGE_REPO_NAME="nodejs-cicd"
 IMAGE_TAG="${BUILD_NUMBER}"
 REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 }
-  
+  agent any
 parameters {
         string(name: 'USER_INPUT', description: 'Enter Image tag to deploy:', defaultValue: 'latest')
     }  
-  
-  agent any
+    
   stages {
     
     stage('git clone'){
