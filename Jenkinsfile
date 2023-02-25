@@ -44,9 +44,6 @@ stage('Push Image') {
           }
         }
       }    
-    parameters {
-        string(name: 'USER_INPUT', description: 'Enter Image tag to deploy:', defaultValue: 'latest')
-    }  
     stage('Deploy to EKS'){
       steps{
           script {
