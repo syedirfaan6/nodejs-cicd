@@ -5,7 +5,7 @@ const config = require('config')
 console.log(config);
 
 app.get('/', (req, res) => {
-  res.send('CICD Demo by Surya')
+  res.send('***HashTek Solutions-Training***')
 })
 
 app.get('/status', (req, res) => {
