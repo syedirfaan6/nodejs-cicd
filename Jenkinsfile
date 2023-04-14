@@ -12,7 +12,7 @@ REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/
     stage('git clone'){
       steps{
         script{
-          git branch: 'main', credentialsId: 'git', url: 'https://github.com/suryatinku/nodejs-cicd.git'}}}
+          git branch: 'main', credentialsId: 'git', url: 'https://github.com/syedirfaan6/nodejs-cicd'}}}
          
     stage('build image') {
       steps{
